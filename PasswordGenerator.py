@@ -5,6 +5,7 @@
 
 import hashlib
 import secrets
+import getpass
 
 def generate_salt():
     # Generate a random salt using secrets module
@@ -16,8 +17,8 @@ def hash_password(password, salt):
     return hashed_password
 
 try:
-    # Get user input for password
-    password = input("Enter your password: ")
+    # Get user input for password without displaying characters
+    password = getpass.getpass("Enter your password: ")
 
     # Generate a random salt
     salt = generate_salt()
@@ -31,3 +32,4 @@ try:
 
 except Exception as e:
     print(f"An error occurred: {e}")
+
